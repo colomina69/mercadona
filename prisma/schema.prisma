@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model ticket {
+  Factura     String    @id @db.VarChar(20)
+  RazonSocial String?   @db.VarChar(45)
+  CIF         String?   @db.VarChar(45)
+  Direccion   String?   @db.VarChar(45)
+  CP          String?   @db.VarChar(45)
+  Poblacion   String?   @db.VarChar(45)
+  Telefono    String?   @db.VarChar(45)
+  Fecha       DateTime? @db.Date
+  Hora        String?   @db.VarChar(45)
+  Operadora   String?   @db.VarChar(45)
+  Total       Float?    @db.Float
+}
+
+model iva {
+  idiva     Int     @id @default(autoincrement())
+  base      Int?
+  imponible Float?  @db.Float
+  cuota     Float?  @db.Float
+  factura   String? @db.VarChar(20)
+}
+
+model lineas {
+  idlineas  Int     @id @default(autoincrement())
+  Productos String? @db.VarChar(45)
+  Cantidad  Int?
+  Precio    Float?  @db.Float
+  Factura   String? @db.VarChar(20)
+  Peso      Float?  @db.Float
+}
+
+model test {
+  id   Int     @id
+  name String? @db.VarChar(255)
+}
