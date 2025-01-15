@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import React from 'react'
 
-const page = async ({ params }: { params: { Factura: string } }) => {
-    const { Factura } = params
+const page = async ({ params }: { params: Promise< { Factura: string } >} ) => {
+    const Factura  = (await params).Factura
     const prisma = new PrismaClient()
     const ticket = await prisma.ticket.findUnique({
         where: {
@@ -28,3 +28,4 @@ const page = async ({ params }: { params: { Factura: string } }) => {
 }
 
 export default page
+
