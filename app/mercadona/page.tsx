@@ -1,11 +1,11 @@
 
-import { PrismaClient } from '@prisma/client'
-import Link from 'next/link'
 
+import Link from 'next/link'
+import { prisma } from '../../lib/prisma'
 
 import React from 'react'
 
-const prisma = new PrismaClient()
+
 
 async function  mercadonaPage() {
   const tickets=await prisma.ticket.findMany({
