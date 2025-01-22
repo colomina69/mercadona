@@ -4,7 +4,7 @@ import Link from 'next/link'
 import prisma from '../../lib/prisma'
 
 import React from 'react'
-
+export const dynamic = 'force-dynamic'
 
 async function mercadonaPage() {
   const tickets = await prisma.ticket.findMany(
