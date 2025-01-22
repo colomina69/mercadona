@@ -1,19 +1,19 @@
 
 
 import Link from 'next/link'
-import { prisma } from '../../lib/prisma'
+import prisma from '../../lib/prisma'
 
 import React from 'react'
 
 
-
-async function  mercadonaPage() {
-  const tickets=await prisma.ticket.findMany({
-    orderBy: {
-      Fecha: 'desc',
+async function mercadonaPage() {
+  const tickets = await prisma.ticket.findMany(
+    {
+      orderBy: {
+        Fecha: 'desc',
+      },
     },
-  })
-
+  )
   return (
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
     <div className='font-bold text-5xl'>Tickets</div>
