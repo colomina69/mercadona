@@ -32,13 +32,7 @@ async function mercadonaPage() {
               <td className='border border-slate-300 text-center'>{ticket.Factura}</td>
               <td className='border border-slate-300 text-center'>{ticket.Fecha?.toLocaleDateString()}</td>
               <td className='border border-slate-300 text-center'>{ticket.Total}</td>
-              <td className='border border-slate-300 text-center'>
-                <Link href={`/ticket/${ticket.Factura}`}>
-                  <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-                    Ver
-                  </button>
-                </Link>
-              </td>
+             
           </tr>
         
       ))}
