@@ -1,7 +1,7 @@
 
 
-export default function Factura({ params }: { params: { Factura: string } }) {
-  const Factura = params.Factura;
+export default async function Factura({ params }: { params: Promise<{ Factura: string } >}) {
+  const {Factura} = await params;
 
 
   return (
