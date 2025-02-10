@@ -44,8 +44,7 @@ export default async function Factura({ params }: { params: Promise<{ Factura: s
         {ticket?.DocumentoUrl && (
           <p><Link href={ticket.DocumentoUrl} legacyBehavior>
           <a 
-            target="_blank" 
-            rel="noopener noreferrer" 
+             
             style={{
               display: 'inline-block',
               padding: '10px 20px',
