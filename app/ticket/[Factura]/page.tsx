@@ -68,19 +68,18 @@ export default async function Factura({ params }: { params: Promise<{ Factura: s
     </div>
   
     <div className="rounded-lg shadow-md p-6">
-      <div className="grid grid-cols-2 gap-4">
         {iva.map((i) => (
           <div key={i.idiva} className="flex flex-rows gap-4">
             <strong>Base:</strong> {i.imponible?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
             <strong>IVA :</strong> {i.base}%
-            <strong>Imponible:</strong> {i.imponible?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
+            <strong>Cuota:</strong> {i.cuota?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
           </div>
         ))}
        
         <div className="text-right">
           <p className="text-lg font-bold">Total: {ticket?.Total?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}</p>
         </div>
-      </div>
+  
     </div>
   
   </div>
