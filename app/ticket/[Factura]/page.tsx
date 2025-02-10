@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import Link from "next/link";
 
 
 export default async function Factura({ params }: { params: Promise<{ Factura: string } >}) {
@@ -35,11 +36,32 @@ export default async function Factura({ params }: { params: Promise<{ Factura: s
           <p><strong>CP</strong> {ticket?.CP}</p>
           <p><strong>Población</strong> {ticket?.Poblacion}</p>
           <p><strong>Telefono</strong> {ticket?.Telefono}</p>
+          
         </div>
         <div>
           <p><strong>Fecha</strong> {ticket?.Fecha?.toLocaleDateString('es-ES')}</p>
           <p><strong>Hora</strong>{ticket?.Hora}</p>
-          <p><strong>Operadora</strong> {ticket?.Operadora}</p>
+        {ticket?.DocumentoUrl && (
+          <p><Link href={ticket.DocumentoUrl} legacyBehavior>
+          <a 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{
+              display: 'inline-block',
+              padding: '10px 20px',
+              backgroundColor: '#0070f3',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '5px',
+              border: 'none',
+              cursor: 'pointer'
+            }}
+          >
+            Ver Ticket
+          </a>
+          </Link></p>
+        )}
+
         </div>
       </div>
     </div>
@@ -71,7 +93,7 @@ export default async function Factura({ params }: { params: Promise<{ Factura: s
         {iva.map((i) => (
           <div key={i.idiva} className="flex flex-rows gap-4">
             <strong>Base:</strong> {i.imponible?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
-            <strong>IVA :</strong> {i.base}%
+            <strong>IVA:</strong> {i.base}%
             <strong>Cuota:</strong> {i.cuota?.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}
           </div>
         ))}

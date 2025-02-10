@@ -8,17 +8,18 @@ datasource db {
 }
 
 model ticket {
-  Factura     String    @id @db.VarChar(20)
-  RazonSocial String?   @db.VarChar(45)
-  CIF         String?   @db.VarChar(45)
-  Direccion   String?   @db.VarChar(45)
-  CP          String?   @db.VarChar(45)
-  Poblacion   String?   @db.VarChar(45)
-  Telefono    String?   @db.VarChar(45)
-  Fecha       DateTime? @db.Date
-  Hora        String?   @db.VarChar(45)
-  Operadora   String?   @db.VarChar(45)
-  Total       Float?    @db.Float
+  Factura      String    @id @db.VarChar(20)
+  RazonSocial  String?   @db.VarChar(45)
+  CIF          String?   @db.VarChar(45)
+  Direccion    String?   @db.VarChar(45)
+  CP           String?   @db.VarChar(45)
+  Poblacion    String?   @db.VarChar(45)
+  Telefono     String?   @db.VarChar(45)
+  Fecha        DateTime? @db.Date
+  Hora         String?   @db.VarChar(45)
+  Operadora    String?   @db.VarChar(45)
+  Total        Float?    @db.Float
+  DocumentoUrl String?   @db.VarChar(500)
 }
 
 model iva {
